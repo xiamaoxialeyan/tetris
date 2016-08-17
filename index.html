@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>俄罗斯方块</title>
+	<meta charset='utf-8'>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chorm=1">
+	<meta name="description" content="小游戏,俄罗斯方块">
+	<meta name="keywords" content="游戏,娱乐,休闲俄罗斯方块">
+	<meta name="author" content="瞎猫瞎了眼">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		#container{
+			text-align: center;
+		}
+		#block{
+			position: absolute;
+		}
+		#bg{
+			background-color: #000;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<canvas id="block" width="240" height="440"></canvas>
+		<canvas id="bg" width="240" height="440"></canvas>
+		<div>
+			<span onclick="moveLeft()">左移</span>
+			<span onclick="moveRight()">右移</span>
+			<span onclick="trans()">变形</span>
+			<span onclick="speed()">加速</span>
+		</div>
+	</div>
+	<script type="text/javascript" src="./rem.js"></script>
+	<script type="text/javascript" src="./index.js"></script>
+</body>
+</html>
