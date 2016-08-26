@@ -28,6 +28,8 @@
         timer,
         score = 0;
 
+
+
     function myEach(obj, fn, context) {
         if (!obj) return;
         var toStr = Object.prototype.toString.call(obj);
