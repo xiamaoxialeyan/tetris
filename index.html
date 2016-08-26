@@ -13,29 +13,154 @@
 			padding: 0;
 			margin: 0;
 		}
-		#container{
-			text-align: center;
+		.t-wrap{
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background: -webkit-linear-gradient(#e7bf80 0%, #ffffff 100%);
+			background: -o-linear-gradient(#e7bf80 0%, #ffffff 100%);
+			background: linear-gradient(rebeccapurple 0%, #e7bf80 100%);
+			overflow: hidden;
 		}
+		#tetris{
+			position: absolute;
+			left: 50%;
+			top : 50%;
+			width: 350px;
+			height: 600px;
+			margin : -300px 0 0 -175px;
+			color: #fff;
+			font-size: 15px;
+			font-weight: bold;
+		}
+		.t-left{
+			width: 240px;
+			height: 580px;
+			border: 2px solid #e7bf80;
+			background-color: lightcoral;
+		}
+		.t-left .name{
+			line-height: 58px;
+			text-align: center;
+			border-bottom : 2px solid #e7bf80;
+		}
+		.t-left .container{
+			width: 440px;
+		}
+		.t-right {
+			position: absolute;
+			top : 60px;
+			right: 0;
+			bottom: 100px;
+			width: 96px;
+		}
+		.t-right >div{
+			margin-bottom: 10px;
+		}
+		.t-right .txt{
+			margin-bottom: 10px;
+		}
+		.t-right .btn-wrap{
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			margin-bottom: -10px;
+		}
+		.t-right .btn{
+			width: 100%;
+			text-align: center;
+			height: 30px;
+			line-height: 30px;
+			background-color: #006633;
+			border-radius: 3px;
+			margin-bottom: 10px;
+		}
+
 		#block{
 			position: absolute;
 		}
-		#bg{
+		#bg,#next{
 			background-color: #000;
+		}
+
+		.handle-wrap{
+			position: relative;
+			width: 60px;
+			height: 60px;
+			line-height: 60px;
+			font-size: 0;
+			margin: 5px auto;
+			border-radius: 50%;
+			background : beige;
+		}
+		.handle-wrap .btn{
+			position: absolute;
+			border : 10px solid transparent;
+		}
+		.handle-wrap .up{
+			border-bottom-color: #ff3300;
+			border-top : none;
+			top : 0;
+			left: 20px
+		}
+		.handle-wrap .right{
+			border-left-color: #ff3300;
+			border-right : none;
+			top : 20px;
+			right: 0;
+		}
+		.handle-wrap .down{
+			border-top-color: #ff3300;
+			border-bottom: none;
+			bottom: 0;
+			left: 20px;
+		}
+		.handle-wrap .left{
+			border-right-color: #ff3300;
+			border-left: none;
+			left: 0;
+			top : 20px;
 		}
 	</style>
 </head>
 <body>
-	<div id="container">
-		<canvas id="block" width="240" height="440"></canvas>
-		<canvas id="bg" width="240" height="440"></canvas>
-		<div>
-			<span onclick="moveLeft()">左移</span>
-			<span onclick="moveRight()">右移</span>
-			<span onclick="trans()">变形</span>
-			<span onclick="speed()">加速</span>
+	<div class="t-wrap">
+		<div id="tetris">
+			<div class="t-left">
+				<div class="name">齐天大圣猪八戒</div>
+				<div class="container">
+					<canvas id="block" width="240px" height="440px"></canvas>
+					<canvas id="bg" width="240px" height="440px"></canvas>
+				</div>
+				<div class="handle-wrap">
+					<div class="btn up" id="trans" onclick="onMup()"></div>
+					<div class="btn right" id="mright" onclick="onMright()"></div>
+					<div class="btn down" id="mdown" onclick="onMdown()"></div>
+					<div class="btn left" id="mleft" onclick="onMleft()"></div>
+				</div>
+			</div>
+			<div class="t-right">
+				<div class="next">
+					<div class="txt">下一个</div>
+					<canvas id="next" width="80px" height="80px"></canvas>
+				</div>
+				<div class="level">
+					<div>级别 1</div>
+				</div>
+				<div class="score">
+					<div class="txt">得分 <span id="score">0</span></div>
+				</div>
+				<div class="btn-wrap">
+					<div class="btn" id="exit">退出</div>
+					<div class="btn" id="restart" onclick="onRestart()">重新开始</div>
+					<div class="btn" id="pause" onclick="onPause()">暂停</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<script type="text/javascript" src="./rem.js"></script>
-	<script type="text/javascript" src="./index.js"></script>
+	<script type="text/javascript" src="./block.js"></script>
 </body>
 </html>
